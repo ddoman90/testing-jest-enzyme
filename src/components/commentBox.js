@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 const INITIAL_STATE = {
 	comment: ''
 };
 
-export default class CommentBox extends Component {
+export class CommentBox extends Component {
 	constructor(props) {
 		super(props);
 
@@ -35,3 +36,5 @@ export default class CommentBox extends Component {
 		);
 	}
 }
+
+export default connect(null, {})(CommentBox);

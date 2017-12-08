@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentBox renders correctly 1`] = `
+<form
+  className="comment_box"
+  onSubmit={[Function]}
+>
+  <textarea
+    className="comment_text"
+    name="comment"
+    onChange={[Function]}
+    value=""
+  />
+  <button
+    action="submit"
+  >
+    Submit
+  </button>
+</form>
+`;

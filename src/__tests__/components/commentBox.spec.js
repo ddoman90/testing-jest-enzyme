@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CommentBox from './commentBox';
+// import the dumb component for unit test
+import { CommentBox } from '../../components/commentBox';
+import renderer from 'react-test-renderer';
 
 describe('CommentBox', () => {
 	let component;
@@ -11,6 +13,11 @@ describe('CommentBox', () => {
 
 	it('renders with the correct class', () => {
 		expect(component.is('.comment_box')).toBe(true);
+	});
+
+	it('renders correctly', () => {
+		const tree = renderer.create(<CommentBox />).toJSON();
+		expect(tree).toMatchSnapshot();
 	});
 
 	it('renders a textarea', () => {
