@@ -5,10 +5,11 @@ import { CommentBox } from '../../components/commentBox';
 import renderer from 'react-test-renderer';
 
 describe('CommentBox', () => {
+	const mockSaveComment = jest.fn();
 	let component;
 
 	beforeEach(() => {
-		component = shallow(<CommentBox />);
+		component = shallow(<CommentBox saveComment={mockSaveComment} />);
 	});
 
 	it('renders with the correct class', () => {
@@ -44,6 +45,11 @@ describe('CommentBox', () => {
 		it('shows empty field after submission', () => {
 			component.simulate('submit', { preventDefault: function() {} });
 			expect(component.find('textarea').prop('value')).toBe('');
+		});
+
+		it('calls submit function after submission', () => {
+			component.simulate('submit', { preventDefault: function() {} });
+			expect(mockSaveComment.mock.calls.length).toBe(2);
 		});
 	});
 });

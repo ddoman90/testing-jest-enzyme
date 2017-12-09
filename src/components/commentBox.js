@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { saveComment } from '../actions';
 import { connect } from 'react-redux';
 
 const INITIAL_STATE = {
@@ -19,6 +20,7 @@ export class CommentBox extends Component {
 
 	onSubmit(event) {
 		event.preventDefault();
+		this.props.saveComment(this.state.comment);
 		this.setState(INITIAL_STATE);
 	}
 
@@ -31,10 +33,12 @@ export class CommentBox extends Component {
 					value={this.state.comment}
 					onChange={this.onChange.bind(this)}
 				/>
-				<button action="submit">Submit</button>
+				<div>
+					<button action="submit">Submit</button>
+				</div>
 			</form>
 		);
 	}
 }
 
-export default connect(null, {})(CommentBox);
+export default connect(null, { saveComment })(CommentBox);

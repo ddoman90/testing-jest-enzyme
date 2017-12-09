@@ -12,4 +12,6 @@ export class CommentList extends Component {
 	}
 }
 
-export default connect({})(CommentList);
+export default connect(({ comments }) => {
+	return { comments };
+})(CommentList);

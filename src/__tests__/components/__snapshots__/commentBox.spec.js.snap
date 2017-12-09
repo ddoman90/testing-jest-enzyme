@@ -11,10 +11,12 @@ exports[`CommentBox renders correctly 1`] = `
     onChange={[Function]}
     value=""
   />
-  <button
-    action="submit"
-  >
-    Submit
-  </button>
+  <div>
+    <button
+      action="submit"
+    >
+      Submit
+    </button>
+  </div>
 </form>
 `;
